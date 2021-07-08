@@ -39,14 +39,22 @@ function calc(num1, operator, num2) {
             if (screenArray.length < 7) {
           screenArray += item.textContent;
           setscreen();};
+          
         })
       });
 calcArray = [];
 document.querySelectorAll('.operators').forEach(item => {
     item.addEventListener('click', () => { calcArray.push(screenArray);
+        if (calcArray.length === 3) {
+            screenArray = calc(calcArray[0], calcArray[1], calcArray[2]);
+            setscreen();
+            calcArray = [];
+            calcArray.push(screenArray);
+            calcArray.push(item.id);
+        } else {
     calcArray.push(item.id);
     screenArray = [0];
-    setscreen();
+    setscreen();}
     })
 })
 
