@@ -11,7 +11,8 @@ function divide(num1, num2) {
     return num1 / num2
 };
 function calc(num1, operator, num2) {
-   return operator(num1, num2)};
+return operator(num1, num2)
+}
    const screenContent = document.querySelector('#screenContent')
    screenArray = [0];
    function setscreen() {
@@ -23,13 +24,15 @@ function calc(num1, operator, num2) {
             };
             if (screenArray.length < 7) {
           screenArray += item.textContent;
-          setscreen();}
+          setscreen();};
         })
       });
 calcArray = [];
 document.querySelectorAll('.operators').forEach(item => {
     item.addEventListener('click', () => { calcArray.push(screenArray);
-    calcArray.push(item.id)
+    calcArray.push(item.id);
+    screenArray = [0];
+    setscreen();
     })
 })
 
@@ -40,7 +43,10 @@ document.querySelectorAll('.operators').forEach(item => {
 
 
       let equal = document.querySelector('#equal');
-      equal.addEventListener('click', () => {calcArray.push(screenArray)})
+      equal.addEventListener('click', () => {calcArray.push(screenArray);
+    screenArray = calc(calcArray[0], calcArray[1], calcArray[2]);
+    setscreen()
+    })
 
       
 
