@@ -15,8 +15,8 @@ function divide(num1, num2) {
     return (Math.round(answer * 100) / 100) }
 };
 function calc(num1, operator, num2) {
-    let a =parseInt(num1);
-    let b =parseInt(num2);
+    let a =parseFloat(num1);
+    let b =parseFloat(num2);
     if (operator === 'add') {
     return add(a, b)} else 
     if (operator === 'subtract') {
