@@ -38,7 +38,8 @@ function calc(num1, operator, num2) {
             };
             if (screenArray.length < 7) {
           screenArray += item.textContent;
-          setscreen();} else if (screenArray.length === undefined) {
+          setscreen();} else if 
+          (screenArray.length === undefined) {
             screenArray = []
             screenArray += item.textContent;
             setscreen();
@@ -74,6 +75,12 @@ document.querySelectorAll('.operators').forEach(item => {
       equal.addEventListener('click', () => {calcArray.push(screenArray);
     screenArray = calc(calcArray[0], calcArray[1], calcArray[2]);
     setscreen();
+    if (screenContent.textContent.length > 7) {
+        let newFont = 80;
+       for (let i = 7; i<screenContent.textContent.length; i++) 
+       newFont *= 7/8;
+       screenContent.style.fontSize = `${newFont}px`
+    };
     calcArray = [];
     })
 
@@ -82,10 +89,5 @@ clear.addEventListener('click', () =>
     {screenArray = [0];
     calcArray = [];
     setscreen();
-    })
-      
-
-
-
-
+    });
 setscreen();
