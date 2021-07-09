@@ -38,13 +38,19 @@ function calc(num1, operator, num2) {
             };
             if (screenArray.length < 7) {
           screenArray += item.textContent;
-          setscreen();};
+          setscreen();} else if (screenArray.length === undefined) {
+            screenArray = []
+            screenArray += item.textContent;
+            setscreen();
+          }
           
         })
       });
 calcArray = [];
 document.querySelectorAll('.operators').forEach(item => {
-    item.addEventListener('click', () => { calcArray.push(screenArray);
+    item.addEventListener('click', () => { 
+        
+        calcArray.push(screenArray);
         if (calcArray.length === 3) {
             screenArray = calc(calcArray[0], calcArray[1], calcArray[2]);
             setscreen();
@@ -68,7 +74,6 @@ document.querySelectorAll('.operators').forEach(item => {
       equal.addEventListener('click', () => {calcArray.push(screenArray);
     screenArray = calc(calcArray[0], calcArray[1], calcArray[2]);
     setscreen();
-    screenArray = [0];
     calcArray = [];
     })
 
