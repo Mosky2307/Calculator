@@ -61,7 +61,13 @@ document.querySelectorAll('.operators').forEach(item => {
         } else {
     calcArray.push(item.id);
     screenArray = [0];
-    setscreen();}
+    setscreen();
+ }
+ if (screenContent.textContent.length > 7) {
+    let newFont = 80;
+   for (let i = 7; i<screenContent.textContent.length; i++) 
+   newFont *= 7/8;
+   screenContent.style.fontSize = `${newFont}px`}
     })
 })
 
@@ -78,7 +84,7 @@ document.querySelectorAll('.operators').forEach(item => {
     if (screenContent.textContent.length > 7) {
         let newFont = 80;
        for (let i = 7; i<screenContent.textContent.length; i++) 
-       newFont *= 7/8;
+       newFont *= 7;
        screenContent.style.fontSize = `${newFont}px`
     };
     calcArray = [];
