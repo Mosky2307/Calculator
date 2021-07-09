@@ -11,7 +11,8 @@ function divide(num1, num2) {
     if (num2 === 0) {
         return 'und'
     } else {
-    return num1 / num2}
+    let answer = num1 / num2;
+    return (Math.round(answer * 100) / 100) }
 };
 function calc(num1, operator, num2) {
     let a =parseInt(num1);
@@ -78,14 +79,18 @@ document.querySelectorAll('.operators').forEach(item => {
 
 
       let equal = document.querySelector('#equal');
-      equal.addEventListener('click', () => {calcArray.push(screenArray);
+      equal.addEventListener('click', () => {
+          if (calcArray === 2) {} else {
+
+          
+        calcArray.push(screenArray);
     screenArray = calc(calcArray[0], calcArray[1], calcArray[2]);
     setscreen();
     if (screenContent.textContent.length > 7) {
         let newFont = 80;
        for (let i = 7; i<screenContent.textContent.length; i++) 
-       newFont *= 7;
-       screenContent.style.fontSize = `${newFont}px`
+       newFont *= 7/8;
+       screenContent.style.fontSize = `${newFont}px`}
     };
     calcArray = [];
     })
